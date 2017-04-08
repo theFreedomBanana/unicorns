@@ -18,8 +18,9 @@
         <input id="name" name="name" [(ngModel)]="newUnicorn.name">
       </fieldset>
       <fieldset>
-        <label for="gender">Gender</label>
-        <input id="gender" name="gender" [(ngModel)]="newUnicorn.gender">
+        <label for="gender">Gender</label><br>
+        <input type="radio" [(ngModel)]="newUnicorn.gender"  name="gender" value="male">Male<br>
+        <input type="radio" [(ngModel)]="newUnicorn.gender"  name="gender" value="female">Female
       </fieldset>
       <fieldset>
         <label for="color">Color</label>
