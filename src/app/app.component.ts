@@ -27,6 +27,14 @@ export class AppComponent {
     }
   ]
 
+  newUnicorn: Unicorn = {};
+
   constructor() {}
+
+  createUnicorn(): void {
+    console.log("newUnicorn: ", this.newUnicorn);
+    this.unicorns.push(this.newUnicorn);
+    this.newUnicorn = {};
+  }
 
 }
