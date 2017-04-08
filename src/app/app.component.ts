@@ -31,8 +31,8 @@ export class AppComponent {
 
   constructor() {}
 
-  createUnicorn(): void {
-    console.log("newUnicorn: ", this.newUnicorn);
+  createUnicorn(color: string): void {
+    this.newUnicorn["color"] = color;
     this.unicorns.push(this.newUnicorn);
     this.newUnicorn = {};
   }

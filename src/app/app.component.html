@@ -12,11 +12,23 @@
 
   <div>
     <h3>Brand new unicorn</h3>
-    <form (ngSubmit)="createUnicorn()">
-      <label for="name">Name</label>
-      <input id="name" name="name" [(ngModel)]="newUnicorn.name">
-      <label for="gender">Gender</label>
-      <input id="gender" name="gender" [(ngModel)]="newUnicorn.gender">
+    <form (ngSubmit)="createUnicorn(color)">
+      <fieldset>
+        <label for="name">Name</label>
+        <input id="name" name="name" [(ngModel)]="newUnicorn.name">
+      </fieldset>
+      <fieldset>
+        <label for="gender">Gender</label>
+        <input id="gender" name="gender" [(ngModel)]="newUnicorn.gender">
+      </fieldset>
+      <fieldset>
+        <label for="color">Color</label>
+        <input id="color" name="color"
+        [(colorPicker)]="color"
+        [style.background]="color"
+        [value]="color"
+        />
+      </fieldset>
       <button type="submit">Create</button>
     </form>
   </div>
