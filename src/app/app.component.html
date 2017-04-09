@@ -6,8 +6,8 @@
     </h1>
 
     <ul>
-      <li *ngFor="let unicorn of unicorns">{{unicorn.name}}
-        <unicorn [unicorn]="unicorn"></unicorn>
+      <li *ngFor="let unicorn of unicorns; let i = index" (click)="display[i] = !display[i]">{{unicorn.name}}
+        <unicorn [unicorn]="unicorn" [ngStyle]="!display[i] ? {'display': 'none'}: null"></unicorn>
       </li>
     </ul>
   </div>
