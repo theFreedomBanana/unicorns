@@ -1,5 +1,9 @@
-import { Component } from '@angular/core';
+import { 
+  OnInit,
+  Component
+} from '@angular/core';
 import { Unicorn } from './definitions';
+
 
 @Component({
   selector: 'app-root',
@@ -7,8 +11,8 @@ import { Unicorn } from './definitions';
   styleUrls: ['./app.component.sass']
 })
 
-export class AppComponent {
-  
+export class AppComponent implements OnInit {
+
   unicorns: Unicorn[] = [
     {
       name: "Foo",
@@ -29,10 +33,14 @@ export class AppComponent {
 
   newUnicorn: Unicorn = {};
 
-  constructor() {}
+  constructor() {
+  }
+
+  ngOnInit() {}
 
   createUnicorn(color: string): void {
     this.newUnicorn["color"] = color;
+    console.log("newUnicorn: ", this.newUnicorn);
     this.unicorns.push(this.newUnicorn);
     this.newUnicorn = {};
   }

@@ -6,7 +6,9 @@
     </h1>
 
     <ul>
-      <li *ngFor="let unicorn of unicorns">{{unicorn.name}}</li>
+      <li *ngFor="let unicorn of unicorns">{{unicorn.name}}
+        <unicorn [unicorn]="unicorn"></unicorn>
+      </li>
     </ul>
   </div>
 
