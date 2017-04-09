@@ -4,7 +4,7 @@ import { Unicorn } from '../definitions';
 @Component({
   selector: 'unicorn',
   templateUrl: './unicorn.component.html',
-  styleUrls: ['./unicorn.component.sass']
+  styleUrls: ['../app.component.sass']
 })
 export class UnicornComponent {
 
