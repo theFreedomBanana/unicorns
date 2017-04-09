@@ -36,6 +36,25 @@
     </form>
   </div>
 
+  <div>
+    Make Unicorn Love
+    <form (ngSubmit)="makeBaby()">
+      <label>Choose a male</label>
+      <select name="father" [(ngModel)]="parents.father">
+        <option *ngFor="let unicorn of getOneGender('male')" 
+        [ngValue]="unicorn"
+        >{{unicorn.name}}</option>
+      </select>
+      <label>Choose a female</label>
+      <select name="mother" [(ngModel)]="parents.mother">
+        <option *ngFor="let unicorn of getOneGender('female')"
+        [ngValue]="unicorn"
+        >{{unicorn.name}}</option>
+      </select>
+      <button type="submit">Make Baby</button>
+    </form>
+  </div>
+
 </div>
 
 

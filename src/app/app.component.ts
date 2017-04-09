@@ -1,8 +1,6 @@
-import { 
-  OnInit,
-  Component
-} from '@angular/core';
+import { Component } from '@angular/core';
 import { Unicorn } from './definitions';
+import { mixColors } from './commonFuncs';
 
 
 @Component({
@@ -11,7 +9,7 @@ import { Unicorn } from './definitions';
   styleUrls: ['./app.component.sass']
 })
 
-export class AppComponent implements OnInit {
+export class AppComponent {
 
   unicorns: Unicorn[] = [
     {
@@ -33,17 +31,30 @@ export class AppComponent implements OnInit {
 
   newUnicorn: Unicorn = {};
   display: boolean[] = [];
+  parents: {[name: string]: Unicorn} = {
+    father: this.unicorns.find(unicorn => unicorn["gender"] == "male"),
+    mother: this.unicorns.find(unicorn => unicorn["gender"] == "female")
+  };
+  babyUnicorn: Unicorn = {};
 
-  constructor() {
-  }
-
-  ngOnInit() {}
+  constructor() {}
 
   createUnicorn(color: string): void {
     this.newUnicorn["color"] = color;
-    console.log("newUnicorn: ", this.newUnicorn);
     this.unicorns.push(this.newUnicorn);
     this.newUnicorn = {};
+  }
+
+  getOneGender(gender: string): Array<Unicorn> {
+    return this.unicorns.filter(unicorn => unicorn["gender"] == gender);
+  }
+
+  makeBaby() {
+    this.babyUnicorn["name"] = this.parents["father"]["name"] + this.parents["mother"]["name"];
+    this.babyUnicorn["color"] = mixColors(this.parents["father"]["color"], this.parents["mother"]["color"]);
+    this.babyUnicorn["gender"] = ["male", "female"][Math.floor(Math.random() * ["male", "female"].length)];
+    this.unicorns.push(this.babyUnicorn);
+    this.babyUnicorn = {};
   }
 
 }
